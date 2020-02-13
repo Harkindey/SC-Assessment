@@ -16,7 +16,7 @@ function EmailInput() {
 		});
 	};
 
-	const validateEmail = () => {
+	const validator = () => {
 		if (!validator.isEmail(email.value)) {
 			setEmail(prevState => {
 				return {
@@ -38,7 +38,7 @@ function EmailInput() {
 	return (
 		<Input
 			label="email"
-			validator={validateEmail}
+			validator={validator}
 			onChange={onChange}
 			value={email.value}
 			message={email.message}

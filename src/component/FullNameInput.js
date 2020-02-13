@@ -16,7 +16,7 @@ function FullNameInput() {
 		});
 	};
 
-	const validateEmail = () => {
+	const validator = () => {
 		if (
 			(!validator.isFullName(fullName.value) && fullName.value) ||
 			!validator.isGreaterThanTwo(fullName.value)
@@ -42,7 +42,7 @@ function FullNameInput() {
 	return (
 		<Input
 			label="full-name"
-			validator={validateEmail}
+			validator={validator}
 			onChange={onChange}
 			value={fullName.value}
 			message={fullName.message}

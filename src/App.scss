@@ -1,0 +1,79 @@
+p {
+	margin: 0;
+	padding: 0;
+}
+.App {
+	// text-align: center;
+	color: #000;
+
+	&_link {
+		color: #61dafb;
+	}
+
+	&__body {
+		background-color: #282c34;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+	}
+}
+
+.form {
+	padding: 20px;
+	border-radius: 5px;
+	width: 50%;
+	// height: 70vh;
+	// margin: 50px 0px;
+	background-color: #fff;
+	color: #000;
+
+	@media only screen and (max-width: 1000px) {
+		width: 90%;
+	}
+	&__body {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__item {
+		width: 100%;
+		margin-bottom: 8px;
+	}
+
+	&__label {
+	}
+
+	&__message {
+		font-size: 12px;
+		color: red;
+		height: 13px;
+	}
+
+	&__input {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0 0 0;
+		box-sizing: border-box;
+		border-radius: 4px;
+	}
+
+	&__button {
+		background-color: #4caf50;
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		border-radius: 4px;
+
+		&:disabled,
+		&[disabled] {
+			background-color: #cccccc;
+			color: #666666;
+		}
+	}
+}

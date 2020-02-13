@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './App.scss';
+import EmailInput from './component/EmailInput';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [formValid, setFormValid] = useState(true);
+
+	return (
+		<div className="App">
+			<div className="App__body">
+				<div className="form">
+					<div>
+						<h1>Form Validation</h1>
+					</div>
+					<div className="form__body">
+						<EmailInput />
+						<div className="form__action">
+							<button
+								className="form__button"
+								type="submit"
+								disabled={formValid}
+							>
+								Submit
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default App;

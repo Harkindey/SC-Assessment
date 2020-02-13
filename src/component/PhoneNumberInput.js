@@ -38,12 +38,12 @@ function PhoneNumberInput() {
 	return (
 		<Input
 			label="phone-number"
-			type="text"
 			validator={validate}
 			onChange={onChange}
 			value={phone.value}
 			message={phone.message}
 			error={phone.error}
+			other={{ type: 'text' }}
 		/>
 	);
 }

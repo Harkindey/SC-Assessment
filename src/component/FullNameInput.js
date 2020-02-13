@@ -41,12 +41,12 @@ function FullNameInput() {
 	return (
 		<Input
 			label="full-name"
-			type="text"
 			validator={validate}
 			onChange={onChange}
 			value={fullName.value}
 			message={fullName.message}
 			error={fullName.error}
+			other={{ type: 'text' }}
 		/>
 	);
 }

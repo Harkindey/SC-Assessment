@@ -77,21 +77,21 @@ function PasswordInput() {
 		<>
 			<Input
 				label="password"
-				type={'password'}
 				validator={validate('password')}
 				onChange={onChange('password')}
 				value={password.value}
 				message={password.message}
 				error={password.error}
+				other={{ type: 'password' }}
 			/>
 			<Input
 				label="confirm-password"
-				type="password"
 				validator={validate('confirmPassword')}
 				onChange={onChange('confirmPassword')}
 				value={confirmPassword.value}
 				message={confirmPassword.message}
 				error={confirmPassword.error}
+				other={{ type: 'password' }}
 			/>
 		</>
 	);

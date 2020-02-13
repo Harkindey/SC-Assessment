@@ -3,29 +3,32 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import validator from '../lib/validator';
 
-function EmailInput() {
-	const [email, setEmail] = useState({
+function PinInput() {
+	const [pin, setPin] = useState({
 		value: '',
 		error: false,
 		message: '',
 	});
 	const onChange = value => {
-		setEmail(prev => {
-			return { ...prev, value };
-		});
+		let regex = /^\d{0,4}$/;
+		if (regex.test(value)) {
+			setPin(prev => {
+				return { ...prev, value };
+			});
+		}
 	};
 
 	const validate = () => {
-		if (!validator.isEmail(email.value)) {
-			setEmail(prevState => {
+		if (!validator.isPin(pin.value)) {
+			setPin(prevState => {
 				return {
 					...prevState,
-					message: 'Invalid email address*',
+					message: 'Pin should have 4 numbers *',
 					error: true,
 				};
 			});
 		} else {
-			setEmail(prevState => {
+			setPin(prevState => {
 				return {
 					...prevState,
 					message: '',
@@ -36,17 +39,17 @@ function EmailInput() {
 	};
 	return (
 		<Input
-			label="email"
+			label="pin"
 			validator={validate}
 			onChange={onChange}
-			value={email.value}
-			message={email.message}
-			error={email.error}
-			other={{ type: 'email' }}
+			value={pin.value}
+			message={pin.message}
+			error={pin.error}
+			other={{ type: 'password' }}
 		/>
 	);
 }
 
-EmailInput.propTypes = {};
+PinInput.propTypes = {};
 
-export default EmailInput;
+export default PinInput;

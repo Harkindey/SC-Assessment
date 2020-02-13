@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Input(props) {
-	const { label, validator, onChange, value, message, error, type } = props;
+	const { label, validator, onChange, value, message, error, other } = props;
 
 	function humanize(str) {
 		var frags = str.split('-');
@@ -20,11 +20,11 @@ function Input(props) {
 				className="form__input"
 				id={label}
 				name={label}
-				type={type}
 				onBlur={() => validator()}
 				value={value}
 				onChange={e => onChange(e.target.value)}
 				style={error ? { border: '2px solid red' } : {}}
+				{...other}
 			/>
 			<p className="form__message">{message}</p>
 		</div>
@@ -38,6 +38,7 @@ Input.propTypes = {
 	value: PropTypes.string,
 	message: PropTypes.string,
 	error: PropTypes.bool,
+	other: PropTypes.object,
 };
 
 export default Input;

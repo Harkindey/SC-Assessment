@@ -3,29 +3,30 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import validator from '../lib/validator';
 
-function EmailInput() {
-	const [email, setEmail] = useState({
+function PhoneNumberInput() {
+	const [phone, setPhone] = useState({
 		value: '',
 		error: false,
 		message: '',
 	});
 	const onChange = value => {
-		setEmail(prev => {
+		setPhone(prev => {
 			return { ...prev, value };
 		});
 	};
 
 	const validate = () => {
-		if (!validator.isEmail(email.value)) {
-			setEmail(prevState => {
+		if (!validator.isPhoneNumber(phone.value)) {
+			setPhone(prevState => {
 				return {
 					...prevState,
-					message: 'Invalid email address*',
+					message:
+						'Phone number should starts with 070..., 080..., 090..., 081 and contain 11 characters*',
 					error: true,
 				};
 			});
 		} else {
-			setEmail(prevState => {
+			setPhone(prevState => {
 				return {
 					...prevState,
 					message: '',
@@ -36,17 +37,17 @@ function EmailInput() {
 	};
 	return (
 		<Input
-			label="email"
-			type="email"
+			label="phone-number"
+			type="text"
 			validator={validate}
 			onChange={onChange}
-			value={email.value}
-			message={email.message}
-			error={email.error}
+			value={phone.value}
+			message={phone.message}
+			error={phone.error}
 		/>
 	);
 }
 
-EmailInput.propTypes = {};
+PhoneNumberInput.propTypes = {};
 
-export default EmailInput;
+export default PhoneNumberInput;

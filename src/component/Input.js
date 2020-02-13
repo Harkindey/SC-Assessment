@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Input(props) {
-	const { label, validator, onChange, value, message, error } = props;
+	const { label, validator, onChange, value, message, error, type } = props;
 
 	function humanize(str) {
 		var frags = str.split('-');
@@ -20,7 +20,7 @@ function Input(props) {
 				className="form__input"
 				id={label}
 				name={label}
-				type={label}
+				type={type}
 				onBlur={() => validator()}
 				value={value}
 				onChange={e => onChange(e.target.value)}

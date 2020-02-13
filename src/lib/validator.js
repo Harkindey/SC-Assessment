@@ -9,13 +9,13 @@ export default {
 	confirmPassword: (password, confirmPassword) => {
 		return password === confirmPassword;
 	},
-	isNumber: number => {
-		let regExp = /^[0]\d{10}$/;
-		return regExp.test(String(number)) && number;
-	},
 	isPin: pin => {
 		let regExp = /^\d{4}$/;
 		return regExp.test(Number(pin));
+	},
+	isPhoneNumber: number => {
+		let regExp = /^0((8[0|1])|([7|9]0))\d{8}$/;
+		return regExp.test(String(number)) && number;
 	},
 	isOnlyNumber: number => {
 		let regExp = /[0-9]/;

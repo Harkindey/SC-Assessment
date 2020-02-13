@@ -9,14 +9,13 @@ function FullNameInput() {
 		error: false,
 		message: '',
 	});
-	console.log(fullName);
 	const onChange = value => {
 		setFullName(prev => {
 			return { ...prev, value };
 		});
 	};
 
-	const validator = () => {
+	const validate = () => {
 		if (
 			(!validator.isFullName(fullName.value) && fullName.value) ||
 			!validator.isGreaterThanTwo(fullName.value)
@@ -42,7 +41,8 @@ function FullNameInput() {
 	return (
 		<Input
 			label="full-name"
-			validator={validator}
+			type="text"
+			validator={validate}
 			onChange={onChange}
 			value={fullName.value}
 			message={fullName.message}

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './App.scss';
 import EmailInput from './component/EmailInput';
 import FullNameInput from './component/FullNameInput';
+import PasswordInput from './component/PasswordInput';
+import PhoneNumberInput from './component/PhoneNumberInput';
 
 function App() {
 	const [formValid, setFormValid] = useState(true);
@@ -16,6 +18,8 @@ function App() {
 					<div className="form__body">
 						<FullNameInput />
 						<EmailInput />
+						<PhoneNumberInput />
+						<PasswordInput />
 					</div>
 					<div className="form__action">
 						<button

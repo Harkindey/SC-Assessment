@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import validator from '../lib/validator';
 
 function EmailInput() {
 	const [email, setEmail] = useState({
@@ -16,8 +17,7 @@ function EmailInput() {
 	};
 
 	const validateEmail = () => {
-		var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-		if (!expr.test(email.value)) {
+		if (!validator.isEmail(email.value)) {
 			setEmail(prevState => {
 				return {
 					...prevState,

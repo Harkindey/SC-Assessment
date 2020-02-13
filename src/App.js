@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.scss';
 import EmailInput from './component/EmailInput';
+import FullNameInput from './component/FullNameInput';
 
 function App() {
 	const [formValid, setFormValid] = useState(true);
@@ -13,16 +14,17 @@ function App() {
 						<h1>Form Validation</h1>
 					</div>
 					<div className="form__body">
+						<FullNameInput />
 						<EmailInput />
-						<div className="form__action">
-							<button
-								className="form__button"
-								type="submit"
-								disabled={formValid}
-							>
-								Submit
-							</button>
-						</div>
+					</div>
+					<div className="form__action">
+						<button
+							className="form__button"
+							type="submit"
+							disabled={formValid}
+						>
+							Submit
+						</button>
 					</div>
 				</div>
 			</div>

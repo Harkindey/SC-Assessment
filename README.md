@@ -1,1 +1,1 @@
-(Link)[zen-noether-28abdc.netlify.com]
+[Link](https://zen-noether-28abdc.netlify.com)

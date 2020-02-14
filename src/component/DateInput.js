@@ -57,7 +57,7 @@ function DateInput() {
 			value={date.value}
 			message={date.message}
 			error={date.error}
-			other={{ type: 'text', placeholder: 'MM/YY' }}
+			other={{ type: 'text', placeholder: '05/20' }}
 		/>
 	);
 }

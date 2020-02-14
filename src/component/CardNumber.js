@@ -12,17 +12,29 @@ function CardNumberInput() {
 	});
 
 	const onChange = value => {
-		setCardNumber(prev => {
-			return { ...prev, value };
-		});
+		let regExp = /^[\d\s]{0,19}$/;
+		if (regExp.test(value)) {
+			if (
+				value.length === 4 ||
+				value.length === 9 ||
+				value.length === 14
+			) {
+				return setCardNumber(prev => {
+					return { ...prev, value: value.concat(' ') };
+				});
+			}
+			return setCardNumber(prev => {
+				return { ...prev, value };
+			});
+		}
 	};
 
 	const validate = () => {
-		if (!validator.isEmail(cardNumber.value)) {
+		if (!validator.isCreditCard(cardNumber.value)) {
 			setCardNumber(prevState => {
 				return {
 					...prevState,
-					message: 'Invalid email address*',
+					message: 'Invalid Card Number*',
 					error: true,
 				};
 			});

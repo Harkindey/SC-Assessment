@@ -4,13 +4,7 @@ import './App.scss';
 import Home from './Pages/Home';
 
 function Dashboard() {
-	return (
-		<div className="dashboard">
-			<div className="dashboard-text">
-				<h1> Welcome to Softcom!</h1>
-			</div>
-		</div>
-	);
+	return <h1> Welcome to Softcom!</h1>;
 }
 
 function App() {

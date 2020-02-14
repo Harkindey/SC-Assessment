@@ -1,14 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import validator from '../lib/validator';
+import { isEmpty } from 'lodash';
 import Input from './Input';
 
-function FullNameInput() {
+function FullNameInput(props) {
+	const { submitStatus } = props;
 	const [fullName, setFullName] = useState({
 		value: '',
 		error: false,
 		message: '',
 	});
+
+	useEffect(
+		() => {
+			if (isEmpty(fullName.value)) {
+				submitStatus(true);
+			} else if (!isEmpty(fullName.value) && fullName.error) {
+				submitStatus(true);
+			} else if (!isEmpty(fullName.value) && !fullName.error) {
+				submitStatus(false);
+			}
+		},
+		[fullName.error, fullName.value]
+	);
+
 	const onChange = value => {
 		setFullName(prev => {
 			return { ...prev, value };
@@ -46,7 +62,7 @@ function FullNameInput() {
 			value={fullName.value}
 			message={fullName.message}
 			error={fullName.error}
-			other={{ type: 'text' }}
+			other={{ type: 'text', placeholder: 'John Doe' }}
 		/>
 	);
 }

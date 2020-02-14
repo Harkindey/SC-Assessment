@@ -2,13 +2,29 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import validator from '../lib/validator';
+import { isEmpty } from 'lodash';
 
-function EmailInput() {
+function EmailInput(props) {
+	const { submitStatus } = props;
 	const [email, setEmail] = useState({
 		value: '',
 		error: false,
 		message: '',
 	});
+
+	useEffect(
+		() => {
+			if (isEmpty(email.value)) {
+				submitStatus(true);
+			} else if (!isEmpty(email.value) && email.error) {
+				submitStatus(true);
+			} else if (!isEmpty(email.value) && !email.error) {
+				submitStatus(false);
+			}
+		},
+		[email.error, email.value]
+	);
+
 	const onChange = value => {
 		setEmail(prev => {
 			return { ...prev, value };

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import validator from '../lib/validator';
+import { isEmpty } from 'lodash';
 
-function PasswordInput() {
+function PasswordInput(props) {
+	const { submitStatus } = props;
 	const [password, setPassword] = useState({
 		value: '',
 		error: false,
@@ -15,6 +17,32 @@ function PasswordInput() {
 		error: false,
 		message: '',
 	});
+
+	useEffect(
+		() => {
+			if (isEmpty(password.value) || isEmpty(confirmPassword.value)) {
+				submitStatus(true);
+			} else if (
+				(!isEmpty(password.value) && password.error) ||
+				(!isEmpty(confirmPassword.value) && confirmPassword.error)
+			) {
+				console.log('here');
+				submitStatus(true);
+			} else if (
+				(!isEmpty(password.value) && !password.error) ||
+				(!isEmpty(confirmPassword.value) && !confirmPassword.error)
+			) {
+				submitStatus(false);
+			}
+		},
+		[
+			password.error,
+			password.value,
+			confirmPassword.error,
+			confirmPassword.value,
+		]
+	);
+
 	const onChange = type => value => {
 		if (type === 'password')
 			return setPassword(prev => {

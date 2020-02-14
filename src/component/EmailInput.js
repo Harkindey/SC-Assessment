@@ -42,7 +42,7 @@ function EmailInput() {
 			value={email.value}
 			message={email.message}
 			error={email.error}
-			other={{ type: 'email' }}
+			other={{ type: 'email', placeholder: 'abc@abc.com' }}
 		/>
 	);
 }

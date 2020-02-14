@@ -5,6 +5,8 @@ import FullNameInput from './component/FullNameInput';
 import PasswordInput from './component/PasswordInput';
 import PhoneNumberInput from './component/PhoneNumberInput';
 import PinInput from './component/PinInput';
+import CardNumberInput from './component/CardNumber';
+import DateInput from './component/DateInput';
 
 function App() {
 	const [formValid, setFormValid] = useState(true);
@@ -21,6 +23,8 @@ function App() {
 						<EmailInput />
 						<PhoneNumberInput />
 						<PasswordInput />
+						<CardNumberInput />
+						<DateInput />
 						<PinInput />
 					</div>
 					<div className="form__action">

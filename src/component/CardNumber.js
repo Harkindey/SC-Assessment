@@ -3,30 +3,31 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import validator from '../lib/validator';
 
-function PhoneNumberInput() {
-	const [phone, setPhone] = useState({
+function CardNumberInput() {
+	const [cardNumber, setCardNumber] = useState({
 		value: '',
 		error: false,
 		message: '',
+		transformedValue: '',
 	});
+
 	const onChange = value => {
-		setPhone(prev => {
+		setCardNumber(prev => {
 			return { ...prev, value };
 		});
 	};
 
 	const validate = () => {
-		if (!validator.isPhoneNumber(phone.value)) {
-			setPhone(prevState => {
+		if (!validator.isEmail(cardNumber.value)) {
+			setCardNumber(prevState => {
 				return {
 					...prevState,
-					message:
-						'Phone number should starts with 070..., 080..., 090..., 081 and contain 11 characters*',
+					message: 'Invalid email address*',
 					error: true,
 				};
 			});
 		} else {
-			setPhone(prevState => {
+			setCardNumber(prevState => {
 				return {
 					...prevState,
 					message: '',
@@ -37,20 +38,17 @@ function PhoneNumberInput() {
 	};
 	return (
 		<Input
-			label="phone-number"
+			label="card-number"
 			validator={validate}
 			onChange={onChange}
-			value={phone.value}
-			message={phone.message}
-			error={phone.error}
-			other={{
-				type: 'text',
-				placeholder: '070..., 080..., 090..., 081...',
-			}}
+			value={cardNumber.value}
+			message={cardNumber.message}
+			error={cardNumber.error}
+			other={{ type: 'text', placeholder: 'xxxx xxxx xxxx xxxx' }}
 		/>
 	);
 }
 
-PhoneNumberInput.propTypes = {};
+CardNumberInput.propTypes = {};
 
-export default PhoneNumberInput;
+export default CardNumberInput;

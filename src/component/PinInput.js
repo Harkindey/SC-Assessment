@@ -45,7 +45,7 @@ function PinInput() {
 			value={pin.value}
 			message={pin.message}
 			error={pin.error}
-			other={{ type: 'password' }}
+			other={{ type: 'password', placeholder: '****' }}
 		/>
 	);
 }

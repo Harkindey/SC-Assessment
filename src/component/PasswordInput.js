@@ -26,7 +26,6 @@ function PasswordInput(props) {
 				(!isEmpty(password.value) && password.error) ||
 				(!isEmpty(confirmPassword.value) && confirmPassword.error)
 			) {
-				console.log('here');
 				submitStatus(true);
 			} else if (
 				(!isEmpty(password.value) && !password.error) ||

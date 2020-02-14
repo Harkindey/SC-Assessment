@@ -28,7 +28,6 @@ function CardNumberInput(props) {
 	const onChange = value => {
 		let regExp = /^[\d\s]{0,19}$/;
 		if (cardNumber.value.length > value.length) {
-			console.log('here');
 			return setCardNumber(prev => {
 				return { ...prev, value };
 			});

@@ -2,6 +2,7 @@ p {
 	margin: 0;
 	padding: 0;
 }
+
 .App {
 	// text-align: center;
 	color: #000;
@@ -33,6 +34,7 @@ p {
 	@media only screen and (max-width: 1000px) {
 		width: 90%;
 	}
+
 	&__body {
 		display: flex;
 		flex-direction: column;
@@ -43,8 +45,7 @@ p {
 		margin-bottom: 8px;
 	}
 
-	&__label {
-	}
+	&__label {}
 
 	&__message {
 		font-size: 12px;
@@ -58,6 +59,7 @@ p {
 		margin: 8px 0 0 0;
 		box-sizing: border-box;
 		border-radius: 4px;
+		border: 1px solid #000
 	}
 
 	&__action {
